@@ -1,35 +1,192 @@
-@import './base.css';
+/* =========================================================
+   HEAT · MOTION '26 — GLOBAL STYLES
+   Brand colours live here. Change them once, they update everywhere.
+   ========================================================= */
+:root {
+  --green: #223127;
+  --green-deep: #18231c;
+  --crimson: #9c0d38;
+  --crimson-dark: #7d0a2d;
+  --pink: #ce5374;
+  --pink-soft: #f6dde4;
+  --cream: #f7f3ee;
+  --white: #ffffff;
+  --ink: #1d2620;
+  --muted: #5b655e;
+  --line: #e6e0d8;
 
-#app {
-  max-width: 1280px;
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(34, 49, 39, 0.1);
+  --container: 1180px;
+  --nav-height: 76px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  padding: 0 20px;
 }
 
-a,
-.green {
+.section {
+  padding: 96px 0;
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  line-height: 1.15;
+  color: var(--green);
+  margin: 10px 0 16px;
+}
+
+.section-lead {
+  font-size: 1.08rem;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+.center {
+  text-align: center;
+}
+.center .section-lead {
+  margin: 0 auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 28px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--crimson);
+  color: var(--white);
+  box-shadow: 0 8px 22px rgba(156, 13, 56, 0.35);
+}
+.btn-primary:hover {
+  background: var(--crimson-dark);
+}
+
+.btn-outline {
+  border-color: currentColor;
+  color: var(--white);
+  background: transparent;
+}
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--green);
+  border-color: var(--white);
+}
+
+.btn-outline-dark {
+  border-color: var(--green);
+  color: var(--green);
+  background: transparent;
+}
+.btn-outline-dark:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* ---------- Scroll reveal animation (used by v-reveal) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
 }
