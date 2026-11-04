@@ -177,10 +177,13 @@ function rejectBots(data) {
 
 function cleanText(value, max) {
   if (typeof value !== 'string') throw new HttpError(400, 'Write something first.')
-  const text = value
-    // strip invisible control characters (keeps tabs and newlines)
-     
-    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '')
+  // strip invisible control characters (keeps tabs and newlines)
+  const text = [...value]
+    .filter((ch) => {
+      const c = ch.charCodeAt(0)
+      return c === 9 || c === 10 || c === 13 || (c >= 32 && c !== 127)
+    })
+    .join('')
     .replace(/\n{3,}/g, '\n\n')
     .trim()
   if (!text) throw new HttpError(400, 'Write something first.')

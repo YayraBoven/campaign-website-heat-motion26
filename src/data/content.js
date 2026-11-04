@@ -375,23 +375,13 @@ export const trackRecord = [
   },
 ]
 
-// ---------- GALLERY (campaign moments) ----------
-export const gallery = [
-  { caption: 'Campaign moment', photo: null },
-  { caption: 'Campaign moment', photo: null },
-  { caption: 'Campaign moment', photo: null },
-  { caption: 'Campaign moment', photo: null },
-  { caption: 'Campaign moment', photo: null },
-  { caption: 'Campaign moment', photo: null },
-]
-
 // ---------- MERCH (placeholders) ----------
 export const merch = {
   comingSoon: true, // set to false when merch is ready to order
   items: [
-    { name: 'HEAT T-Shirt', price: 'GH₵ —', photo: null },
-    { name: 'HEAT Wristband', price: 'GH₵ —', photo: null },
-    { name: 'HEAT Stickers', price: 'GH₵ —', photo: null },
-    { name: 'HEAT Tote Bag', price: 'GH₵ —', photo: null },
+    { name: 'HEAT T-Shirt', photo: null },
+    { name: 'HEAT Wristband', photo: null },
+    { name: 'HEAT Stickers', photo: null },
+    { name: 'HEAT Tote Bag', photo: null },
   ],
 }

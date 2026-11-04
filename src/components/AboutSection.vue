@@ -13,7 +13,13 @@ const expanded = ref(false)
   <section class="statement section">
     <div class="container narrow">
       <div v-reveal class="framed">
-        <PhotoBox :src="photos.statement" label="Campaign photo — with students" ratio="16 / 9" />
+        <!-- image shifted down inside the frame (18% instead of centred) so both faces show -->
+        <PhotoBox
+          :src="photos.statement"
+          label="Campaign photo — with students"
+          ratio="16 / 9"
+          position="center 18%"
+        />
       </div>
       <p v-reveal class="statement-text">
         <strong>{{ statement.highlight }}</strong>
