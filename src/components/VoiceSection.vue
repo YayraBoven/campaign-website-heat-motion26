@@ -155,7 +155,7 @@ onMounted(loadNotes)
               {{ posting ? 'Sticking…' : 'Stick it on the wall' }}
             </button>
             <p v-if="postError" class="error" role="alert">{{ postError }}</p>
-            <p class="fineprint">Anonymous — no name is attached. Be kind; notes may be removed.</p>
+            <p class="fineprint">Anonymous: no name is attached. Be kind; notes may be removed.</p>
           </form>
 
           <div class="board" aria-live="polite">
@@ -164,7 +164,7 @@ onMounted(loadNotes)
               {{ loadError }} <button class="link" @click="loadNotes">Try again</button>
             </p>
             <p v-else-if="!notes.length" class="board-msg">
-              The wall is empty — be the first to leave a note.
+              The wall is empty. Be the first to leave a note.
             </p>
             <TransitionGroup v-else tag="ul" name="note" class="notes">
               <li

@@ -1,15 +1,15 @@
 // =====================================================================
-//  HEAT · MOTION '26 — STUDENT VOICE API
+//  HEAT · MOTION '26 - STUDENT VOICE API
 //  Runs only for /api/* (see wrangler.jsonc); everything else is the
 //  static site in dist/.
 //
 //  Public:  GET  /api/notes           sticky notes on the wall
-//           POST /api/notes           { body, color } — post a note
-//           POST /api/messages        { body } — private message to the team
+//           POST /api/notes           { body, color } - post a note
+//           POST /api/messages        { body } - private message to the team
 //  Team:    (header  Authorization: Bearer <ADMIN_KEY>)
 //           GET    /api/admin/inbox           private messages + every note
-//           POST   /api/admin/notes/:id       { hidden } — hide/show a note
-//           POST   /api/admin/messages/:id    { read } — mark read/unread
+//           POST   /api/admin/notes/:id       { hidden } - hide/show a note
+//           POST   /api/admin/messages/:id    { read } - mark read/unread
 //           DELETE /api/admin/messages/:id
 //
 //  Everything is anonymous: no names, no accounts, no IP addresses stored.
@@ -207,7 +207,7 @@ async function rateLimit(env, table, sender) {
     .bind(sender, Date.now() - RATE_WINDOW_MS)
     .first()
   if (row.n >= RATE_MAX) {
-    throw new HttpError(429, 'You’ve posted a lot just now — give it a few minutes.')
+    throw new HttpError(429, 'You’ve posted a lot just now. Give it a few minutes.')
   }
 }
 

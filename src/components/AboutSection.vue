@@ -16,7 +16,7 @@ const expanded = ref(false)
         <!-- image shifted down inside the frame (18% instead of centred) so both faces show -->
         <PhotoBox
           :src="photos.statement"
-          label="Campaign photo — with students"
+          label="Campaign photo with students"
           ratio="16 / 9"
           position="center 18%"
         />
@@ -61,7 +61,7 @@ const expanded = ref(false)
       <!-- Candidates -->
       <div class="candidates">
         <article v-for="(c, i) in candidates" :key="c.id" v-reveal="i * 120" class="candidate">
-          <PhotoBox :src="c.photo" :label="`${c.name.split(' ')[0]} — portrait`" ratio="4 / 5" />
+          <PhotoBox :src="c.photo" :label="`${c.name.split(' ')[0]} portrait`" ratio="4 / 5" />
           <div class="candidate-body">
             <p class="role">{{ c.role }}</p>
             <h3>{{ c.name }}</h3>

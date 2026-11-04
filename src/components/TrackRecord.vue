@@ -26,7 +26,7 @@ const whoLabel = { maria: 'Maria', yayra: 'Yayra', both: 'Maria & Yayra' }
         <p class="eyebrow">Track record</p>
         <h2 class="section-title">We’ve already been doing the work</h2>
         <p class="section-lead">
-          From parliament to residence halls to the volleyball court — leadership isn’t new to us.
+          From parliament to residence halls to the volleyball court, leadership isn’t new to us.
         </p>
       </div>
 

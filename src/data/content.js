@@ -1,5 +1,5 @@
 // =====================================================================
-//  HEAT · MOTION '26 — ALL WEBSITE CONTENT LIVES HERE
+//  HEAT · MOTION '26 - ALL WEBSITE CONTENT LIVES HERE
 //  To change text, links, dates or photos, edit this file only.
 //  Photos: put image files in the `public/images/` folder, then set
 //  the path below, e.g.  photo: '/images/maria.jpg'
@@ -8,8 +8,8 @@
 
 // ---------- LINKS (replace the # with real links) ----------
 export const links = {
-  whatsapp: '#', // Join Team HEAT — WhatsApp channel/group link
-  tiktokVideo: '#', // "Watch now" — link to the TikTok campaign video
+  whatsapp: '#', // Join Team HEAT - WhatsApp channel/group link
+  tiktokVideo: '#', // "Watch now" - link to the TikTok campaign video
   manifesto: '/manifesto.pdf', // file in the public/ folder
   merchOrder: '#', // where people order merch (WhatsApp chat link or form)
   email: '', // campaign email, e.g. 'heat26@gmail.com' (leave '' to hide)
@@ -30,7 +30,7 @@ export const election = {
     {
       date: '16th / 17th Nov',
       title: 'Manifesto Reading & Debate',
-      text: 'Come hear us out — watch Maria and Yayra present the plan live.',
+      text: 'Come hear us out. Watch Maria and Yayra present the plan live.',
     },
     {
       date: '18th – 22nd Nov',
@@ -62,14 +62,14 @@ export const candidates = [
     id: 'maria',
     name: 'Maria Bortei-Doku',
     role: 'ASC President Aspirant',
-    bio: 'Short bio goes here — year group, major, and one line on what drives Maria. (Replace this placeholder.)',
+    bio: 'Short bio goes here: year group, major, and one line on what drives Maria. (Replace this placeholder.)',
     photo: '/images/maria.jpg',
   },
   {
     id: 'yayra',
     name: 'Yayra Boven',
     role: 'ASC Vice-President Aspirant',
-    bio: 'Short bio goes here — year group, major, and one line on what drives Yayra. (Replace this placeholder.)',
+    bio: 'Short bio goes here: year group, major, and one line on what drives Yayra. (Replace this placeholder.)',
     photo: '/images/yayra.jpg',
   },
 ]
@@ -83,18 +83,18 @@ export const photos = {
 // ---------- ABOUT / OUR MESSAGE ----------
 export const statement = {
   highlight: 'Ashesi is stressful, and that’s why we are here.',
-  text: 'As student council president and vice, we bring the HEAT to melt the dark icy clouds of stress and anxiety many Ashesi students go through — and restore student morale with a council that prioritises every single student.',
+  text: 'As student council president and vice, we bring the HEAT to melt the dark icy clouds of stress and anxiety many Ashesi students go through, and restore student morale with a council that prioritises every single student.',
 }
 
 export const message = {
   short: [
-    'Every student that walks through the gates of Ashesi comes with a dream. The entrepreneur, the engineer, the painter, the student politician, the international student proudly representing their homeland — many, many people hoping to find their place in such a prestigious institution.',
+    'Every student that walks through the gates of Ashesi comes with a dream. The entrepreneur, the engineer, the painter, the student politician, the international student proudly representing their homeland. Many, many people hoping to find their place in such a prestigious institution.',
     'Then the reality of the system sets in. The 11:59s keep piling up, the group chats keep buzzing, and the dream freezes up. That’s where we come in.',
   ],
   full: [
     'Months deep, the 11:59s keep piling and multiple class WhatsApp group chats keep buzzing with “guys, when are we meeting for our presentation prep?”. Then a course that seems to be smooth sailing for everyone else questions your intelligence and abilities. You need to lock in, so you drop your paint canvas. You stop posting on your business page. No more visits to the music studio. The dream freezes up.',
-    'Ashesi is stressful, and that’s why we are here. We’ve spent semesters in the system, studying and participating in all aspects of students’ lives — from parliament, to resident assistancy, to UBORA planning, to volleyball practice — while ultimately being students. The plain and simple of our tenure is to restore student morale and be a supportive council that prioritises every single Ashesi student. Admittedly, we can’t change the system. But we promise innovative ways to beat it, and to ensure that students don’t lose themselves to the rigour of the school.',
-    'We will lead a student council that believes every student, with every unique opportunity and experience, deserves to be recognised. This is the time for recovery and recuperation — a tenure that creates convenience for students and showcases clear improvements in campus culture, moods and stress levels, while upholding the rigour and quality Ashesi promises.',
+    'Ashesi is stressful, and that’s why we are here. We’ve spent semesters in the system, studying and participating in all aspects of students’ lives, from parliament, to resident assistancy, to UBORA planning, to volleyball practice, while ultimately being students. The plain and simple of our tenure is to restore student morale and be a supportive council that prioritises every single Ashesi student. Admittedly, we can’t change the system. But we promise innovative ways to beat it, and to ensure that students don’t lose themselves to the rigour of the school.',
+    'We will lead a student council that believes every student, with every unique opportunity and experience, deserves to be recognised. This is the time for recovery and recuperation: a tenure that creates convenience for students and showcases clear improvements in campus culture, moods and stress levels, while upholding the rigour and quality Ashesi promises.',
     'Ashesi is all the way on the mountain. It provides the perfect environment for focus, but it also fosters feelings of detachment, loneliness and isolation. We cannot move Ashesi physically, but we can shift the culture. Too often, decisions about our academic life are made with limited consultation. We promise student involvement and initiative, and a government that prioritises amplifying students’ voices. Until your passions are explored and your physical and mental health are taken care of, we will keep fighting.',
     'We recognise the times we are in: the double intake system, the ASC’s lack of finances, low student morale, uncertainty. Giving our lives, time and intellect to this cause will be an honour. Our legacy will be seeds planted in a garden we actually get to see.',
   ],
@@ -108,7 +108,7 @@ export const vision = [
   },
   {
     title: 'A better student life',
-    text: 'More enjoyable, fulfilling and refreshing student life experiences — with real support for students going through tough academic and social realities.',
+    text: 'More enjoyable, fulfilling and refreshing student life experiences, with real support for students going through tough academic and social realities.',
   },
   {
     title: 'Your voice, amplified',
@@ -132,14 +132,14 @@ export const issues = [
         heading: 'Succession plan',
         items: [
           'Heightened intentionality in year-group representation in core ASC leadership positions.',
-          'Regular in-person visits to campus during semesters when we are not on campus — taking it as a full-time job.',
+          'Regular in-person visits to campus during semesters when we are not on campus, taking it as a full-time job.',
         ],
       },
       {
         heading: 'Financial state',
         items: [
           'Introduce a new student dues amount that reflects current economic realities.',
-          'Seek alternative sources of sponsorship — investment in student businesses, companies, departmental collaboration, and grants.',
+          'Seek alternative sources of sponsorship: investment in student businesses, companies, departmental collaboration, and grants.',
         ],
       },
       {
@@ -165,7 +165,7 @@ export const issues = [
     ],
     solutions: [
       'Advocate for the prioritisation of free periods such as mid-semester breaks, revision weeks, weekends, and Wellness Wednesday.',
-      'Work closely with the Registry to make course selection more efficient — e.g. timely emails whenever a delay occurs.',
+      'Work closely with the Registry to make course selection more efficient, e.g. timely emails whenever a delay occurs.',
       'Collaborate with the CCAPS team and the Provost to cancel classes or offer a half day so students can fully enjoy Wellness Wednesday.',
       'Recuperation vs. reduction: academic assistance such as ASC-catered informal study groups in lofi classrooms, plus incentives to encourage learning.',
       'Collaborate with Career Services and the EDU Collaborative (IPCC) to take the Career Fair to countries where international students may find themselves, bringing international companies on board.',
@@ -269,7 +269,7 @@ export const issues = [
       'Limited activities that encourage students to socialise and enjoy campus life.',
     ],
     solutions: [
-      'Maintain and improve EnterCom events — Akwaba Nights, ASC Opening and Closing Nights, external events, and collaborations with other schools.',
+      'Maintain and improve EnterCom events: Akwaba Nights, ASC Opening and Closing Nights, external events, and collaborations with other schools.',
       'Facilitate easy access to entertainment opportunities in Accra.',
       'Diversify entertainment with unique experiences such as hiking, silent movie nights, pilates, skateboarding and roller skating.',
     ],
@@ -328,17 +328,17 @@ export const issues = [
 ]
 
 // ---------- YOUR VOICE (anonymous wall + private inbox) ----------
-// Notes and messages are stored by the site itself — read private ones at /inbox
+// Notes and messages are stored by the site itself - read private ones at /inbox
 export const voice = {
   eyebrow: 'Your voice, amplified',
   title: 'Share your priorities',
-  lead: 'No names, no logins. Stick a note on the wall for everyone to see — or send something straight to Maria & Yayra.',
+  lead: 'No names, no logins. Stick a note on the wall for everyone to see, or send something straight to Maria & Yayra.',
   wallPrompt: 'What should the ASC fix, keep or start?',
   privatePrompt:
-    'Something you’d rather not post publicly? Tell us here — only Maria & Yayra will read it.',
+    'Something you’d rather not post publicly? Tell us here. Only Maria & Yayra will read it.',
 }
 
-// ---------- TRACK RECORD (placeholders — replace with real details) ----------
+// ---------- TRACK RECORD (placeholders - replace with real details) ----------
 // who: 'maria' | 'yayra' | 'both'
 export const trackRecord = [
   {

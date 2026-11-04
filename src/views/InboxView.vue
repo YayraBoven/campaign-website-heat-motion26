@@ -21,7 +21,7 @@ function remember(value) {
     if (value) sessionStorage.setItem(STORE, value)
     else sessionStorage.removeItem(STORE)
   } catch {
-    // private mode etc. — just won't stay logged in on refresh
+    // private mode etc. - just won't stay logged in on refresh
   }
 }
 

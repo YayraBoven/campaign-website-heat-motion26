@@ -17,7 +17,7 @@ const heading = computed(
   () =>
     ({
       before: 'Don’t forget to vote',
-      open: 'Voting is open — vote HEAT',
+      open: 'Voting is open. Vote HEAT',
       closed: 'Thank you for voting',
     })[phase.value],
 )

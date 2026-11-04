@@ -12,7 +12,7 @@ import { vReveal } from '@/utils'
         <div>
           <p class="eyebrow">Merch</p>
           <h2 class="section-title">Wear the HEAT</h2>
-          <p class="section-lead">Rep the campaign around campus. Limited pieces — grab yours.</p>
+          <p class="section-lead">Rep the campaign around campus. Limited pieces, grab yours.</p>
         </div>
         <span v-if="merch.comingSoon" class="soon">Coming soon</span>
       </div>
