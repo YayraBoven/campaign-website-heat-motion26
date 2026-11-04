@@ -7,25 +7,33 @@
 // =====================================================================
 
 // ---------- LINKS (replace the # with real links) ----------
+// whatsapp, tiktok and tiktokVideo can also be changed by Maria & Yayra at /inbox
+// (Links tab). What they save there wins over the values here.
 export const links = {
-  whatsapp: '#', // Join Team HEAT - WhatsApp channel/group link
-  tiktokVideo: '#', // "Watch now" - link to the TikTok campaign video
+  whatsapp: '#', // Join Team HEAT buttons + WhatsApp icon - channel/group link
+  tiktok: '#', // TikTok icon - campaign TikTok profile
+  tiktokVideo: '#', // "Watch now" play button - the TikTok campaign video
   manifesto: '/manifesto.pdf', // file in the public/ folder
   merchOrder: '#', // where people order merch (WhatsApp chat link or form)
   email: '', // campaign email, e.g. 'heat26@gmail.com' (leave '' to hide)
 }
 
+// icons shown in the hero and footer; `link` is a key of `links` above
 export const socials = [
-  { name: 'Instagram', icon: 'instagram', url: '#' },
-  { name: 'TikTok', icon: 'tiktok', url: '#' },
-  { name: 'X', icon: 'x', url: '#' },
-  { name: 'WhatsApp', icon: 'whatsapp', url: '#' },
+  { name: 'TikTok', icon: 'tiktok', link: 'tiktok' },
+  { name: 'WhatsApp', icon: 'whatsapp', link: 'whatsapp' },
 ]
 
 // ---------- ELECTION DATES (Ghana time, GMT) ----------
 export const election = {
   votingOpens: '2026-11-18T00:00:00Z', // 18 Nov, 12:00 AM
   votingCloses: '2026-11-22T23:59:00Z', // 22 Nov, 11:59 PM
+  // the event people get from "Add to calendar"
+  calendar: {
+    title: 'ASC Elections: vote HEAT (Maria & Yayra)',
+    details:
+      'Voting for ASC President and Vice-President is open from 18 Nov, 12:00 AM to 22 Nov, 11:59 PM (Ghana time). Vote Maria Bortei-Doku & Yayra Boven. Every single vote counts.',
+  },
   keyDates: [
     {
       date: '16th / 17th Nov',

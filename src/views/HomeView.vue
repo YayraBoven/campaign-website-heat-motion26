@@ -8,6 +8,7 @@ import TrackRecord from '@/components/TrackRecord.vue'
 import MerchSection from '@/components/MerchSection.vue'
 import VoteSection from '@/components/VoteSection.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
+import CalendarPrompt from '@/components/CalendarPrompt.vue'
 </script>
 
 <template>
@@ -22,4 +23,5 @@ import SiteFooter from '@/components/SiteFooter.vue'
     <VoteSection />
   </main>
   <SiteFooter />
+  <CalendarPrompt />
 </template>

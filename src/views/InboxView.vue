@@ -1,7 +1,16 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import AppIcon from '@/components/AppIcon.vue'
-import { getInbox, setNoteHidden, setMessageRead, deleteMessage, timeAgo } from '@/voiceApi'
+import {
+  getInbox,
+  getLinks,
+  saveLinks,
+  setNoteHidden,
+  setMessageRead,
+  deleteMessage,
+  timeAgo,
+} from '@/voiceApi'
+import { siteLinks } from '@/siteLinks'
 
 // Only for Maria & Yayra: private messages, plus hiding notes from the public wall.
 const STORE = 'heat-inbox-key'
@@ -14,6 +23,47 @@ const error = ref('')
 const tab = ref('messages')
 const messages = ref([])
 const notes = ref([])
+// Links tab: edits here change the live site straight away (no redeploy)
+const LINK_FIELDS = [
+  {
+    key: 'whatsapp',
+    label: 'WhatsApp link',
+    where: 'The “Join Team HEAT” buttons and the WhatsApp icon',
+    placeholder: 'https://chat.whatsapp.com/… or https://whatsapp.com/channel/…',
+  },
+  {
+    key: 'tiktok',
+    label: 'TikTok profile',
+    where: 'The TikTok icon',
+    placeholder: 'https://www.tiktok.com/@yourcampaign',
+  },
+  {
+    key: 'tiktokVideo',
+    label: 'TikTok video',
+    where: 'The “Watch now” play button on the big photo at the top',
+    placeholder: 'https://www.tiktok.com/@yourcampaign/video/…',
+  },
+]
+const linkForm = ref({ whatsapp: '', tiktok: '', tiktokVideo: '' })
+const savingLinks = ref(false)
+const linksSaved = ref(false)
+
+function fillLinks(saved) {
+  linkForm.value = Object.fromEntries(LINK_FIELDS.map((f) => [f.key, saved[f.key] || '']))
+}
+
+async function submitLinks() {
+  savingLinks.value = true
+  linksSaved.value = false
+  await act(async () => {
+    const saved = await saveLinks(key.value, linkForm.value)
+    fillLinks(saved)
+    Object.assign(siteLinks, saved)
+    linksSaved.value = true
+  })
+  savingLinks.value = false
+}
+
 const unread = computed(() => messages.value.filter((m) => !m.read).length)
 
 function remember(value) {
@@ -32,6 +82,7 @@ async function load(k = key.value) {
     const data = await getInbox(k)
     messages.value = data.messages
     notes.value = data.notes
+    fillLinks(await getLinks())
     key.value = k
     loggedIn.value = true
     remember(k)
@@ -138,6 +189,14 @@ onMounted(() => {
           >
             Wall notes ({{ notes.length }})
           </button>
+          <button
+            role="tab"
+            :aria-selected="tab === 'links'"
+            :class="{ active: tab === 'links' }"
+            @click="tab = 'links'"
+          >
+            Links
+          </button>
         </div>
         <button class="ghost" :disabled="loading" @click="load()">
           {{ loading ? 'Refreshing…' : 'Refresh' }}
@@ -160,6 +219,43 @@ onMounted(() => {
           </div>
         </article>
       </section>
+
+      <form v-else-if="tab === 'links'" class="links-form" @submit.prevent="submitLinks">
+        <p class="hint">
+          Paste a link and press Save. The site uses it straight away, no redeploy. Leave a box
+          empty to remove that link.
+        </p>
+        <div v-for="f in LINK_FIELDS" :key="f.key" class="item field">
+          <label :for="`link-${f.key}`">{{ f.label }}</label>
+          <p class="where">Used for: {{ f.where }}</p>
+          <div class="field-row">
+            <input
+              :id="`link-${f.key}`"
+              v-model="linkForm[f.key]"
+              type="url"
+              inputmode="url"
+              :placeholder="f.placeholder"
+              @input="linksSaved = false"
+            />
+            <a
+              v-if="linkForm[f.key]"
+              class="ghost"
+              :href="linkForm[f.key]"
+              target="_blank"
+              rel="noopener"
+              >Test</a
+            >
+          </div>
+        </div>
+        <div class="save-row">
+          <span v-if="linksSaved" class="saved" role="status">
+            <AppIcon name="check" :size="16" /> Saved. The site is using these links now.
+          </span>
+          <button class="btn btn-primary" :disabled="savingLinks">
+            {{ savingLinks ? 'Saving…' : 'Save links' }}
+          </button>
+        </div>
+      </form>
 
       <section v-else>
         <p class="hint">Hidden notes disappear from the public wall. You can show them again.</p>
@@ -361,6 +457,54 @@ onMounted(() => {
 }
 .dot-orange {
   background: #fed2a8;
+}
+.field label {
+  display: block;
+  font-weight: 700;
+  color: var(--green);
+}
+.where {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 2px 0 10px;
+}
+.field-row {
+  display: flex;
+  gap: 8px;
+}
+.field-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.9rem;
+}
+.field-row input:focus {
+  outline: none;
+  border-color: var(--pink);
+}
+.field-row .ghost {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.save-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 8px;
+}
+.saved {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2f7a46;
 }
 .hint,
 .empty {

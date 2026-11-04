@@ -3,6 +3,7 @@ import { reactive, ref, computed, onMounted, onUnmounted } from 'vue'
 // Shared state between components (e.g. the "Solutions" menu link opens the solutions panel)
 export const ui = reactive({
   showSolutions: false,
+  calendarPrompt: false, // the "Add voting to your calendar?" pop-up
 })
 
 // Smoothly scroll to a section by its id
@@ -13,6 +14,14 @@ export function scrollToSection(id) {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   })
+}
+
+// Countdown chip: scroll down to the Vote section, then offer "Add to calendar"
+let promptTimer
+export function goVoteAndPromptCalendar() {
+  scrollToSection('vote')
+  clearTimeout(promptTimer)
+  promptTimer = setTimeout(() => (ui.calendarPrompt = true), 1200)
 }
 
 // v-reveal: fades/slides an element in when it scrolls into view.

@@ -1,8 +1,9 @@
 <script setup>
 import { computed } from 'vue'
 import AppIcon from './AppIcon.vue'
-import { election, links } from '@/data/content'
-import { useCountdown, pad, vReveal, scrollToSection } from '@/utils'
+import { election } from '@/data/content'
+import { useCountdown, pad, vReveal, scrollToSection, ui } from '@/utils'
+import { siteLinks, external } from '@/siteLinks'
 
 const { phase, parts } = useCountdown(election.votingOpens, election.votingCloses)
 
@@ -70,9 +71,12 @@ const sub = computed(
       </div>
 
       <div v-reveal class="actions">
-        <a :href="links.whatsapp" target="_blank" rel="noopener" class="btn btn-light">
+        <a v-bind="external(siteLinks.whatsapp)" class="btn btn-light">
           <AppIcon name="whatsapp" /> Join Team HEAT
         </a>
+        <button v-if="phase !== 'closed'" class="btn btn-outline" @click="ui.calendarPrompt = true">
+          <AppIcon name="calendar" :size="18" /> Add to calendar
+        </button>
         <button class="btn btn-outline" @click="scrollToSection('voice')">
           Share your priorities
         </button>

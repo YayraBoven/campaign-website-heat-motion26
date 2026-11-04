@@ -35,6 +35,9 @@ export const setNoteHidden = (key, id, hidden) =>
   request(`/api/admin/notes/${id}`, { method: 'POST', body: { hidden }, key })
 export const setMessageRead = (key, id, read) =>
   request(`/api/admin/messages/${id}`, { method: 'POST', body: { read }, key })
+export const getLinks = () => request('/api/links').then((d) => d.links)
+export const saveLinks = (key, links) =>
+  request('/api/admin/links', { method: 'POST', body: links, key }).then((d) => d.links)
 export const deleteMessage = (key, id) =>
   request(`/api/admin/messages/${id}`, { method: 'DELETE', key })
 

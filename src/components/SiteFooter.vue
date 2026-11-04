@@ -2,6 +2,7 @@
 import AppIcon from './AppIcon.vue'
 import { navLinks, socials, links } from '@/data/content'
 import { scrollToSection } from '@/utils'
+import { siteLinks, external } from '@/siteLinks'
 </script>
 
 <template>
@@ -27,9 +28,7 @@ import { scrollToSection } from '@/utils'
         <a
           v-for="s in socials"
           :key="s.name"
-          :href="s.url"
-          target="_blank"
-          rel="noopener"
+          v-bind="external(siteLinks[s.link])"
           :aria-label="s.name"
         >
           <AppIcon :name="s.icon" :size="18" />

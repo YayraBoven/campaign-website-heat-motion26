@@ -78,7 +78,13 @@ const expanded = ref(false)
             <h2 class="section-title">Where we see Ashesi</h2>
           </div>
           <div class="vision-photo">
-            <PhotoBox :src="photos.vision" label="Maria & Yayra together" ratio="16 / 10" />
+            <!-- image shifted down inside the card (25% instead of centred) so both faces show -->
+            <PhotoBox
+              :src="photos.vision"
+              label="Maria & Yayra together"
+              ratio="16 / 10"
+              position="center 25%"
+            />
           </div>
         </div>
         <div class="vision-grid">
