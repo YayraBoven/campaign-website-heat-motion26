@@ -11,7 +11,6 @@ export const links = {
   whatsapp: '#', // Join Team HEAT — WhatsApp channel/group link
   tiktokVideo: '#', // "Watch now" — link to the TikTok campaign video
   manifesto: '/manifesto.pdf', // file in the public/ folder
-  priorities: '#', // optional Google Form: "Share your priorities"
   merchOrder: '#', // where people order merch (WhatsApp chat link or form)
   email: '', // campaign email, e.g. 'heat26@gmail.com' (leave '' to hide)
 }
@@ -52,6 +51,7 @@ export const navLinks = [
   { label: 'About', target: 'about' },
   { label: 'Issues Identified', target: 'issues' },
   { label: 'Solutions', target: 'solutions' },
+  { label: 'Your Voice', target: 'voice' },
   { label: 'Track Record', target: 'track-record' },
   { label: 'Merch', target: 'merch' },
 ]
@@ -326,6 +326,17 @@ export const issues = [
     ],
   },
 ]
+
+// ---------- YOUR VOICE (anonymous wall + private inbox) ----------
+// Notes and messages are stored by the site itself — read private ones at /inbox
+export const voice = {
+  eyebrow: 'Your voice, amplified',
+  title: 'Share your priorities',
+  lead: 'No names, no logins. Stick a note on the wall for everyone to see — or send something straight to Maria & Yayra.',
+  wallPrompt: 'What should the ASC fix, keep or start?',
+  privatePrompt:
+    'Something you’d rather not post publicly? Tell us here — only Maria & Yayra will read it.',
+}
 
 // ---------- TRACK RECORD (placeholders — replace with real details) ----------
 // who: 'maria' | 'yayra' | 'both'

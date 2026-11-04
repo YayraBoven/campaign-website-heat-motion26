@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import AppIcon from './AppIcon.vue'
 import { election, links } from '@/data/content'
-import { useCountdown, pad, vReveal } from '@/utils'
+import { useCountdown, pad, vReveal, scrollToSection } from '@/utils'
 
 const { phase, parts } = useCountdown(election.votingOpens, election.votingCloses)
 
@@ -73,9 +73,9 @@ const sub = computed(
         <a :href="links.whatsapp" target="_blank" rel="noopener" class="btn btn-light">
           <AppIcon name="whatsapp" /> Join Team HEAT
         </a>
-        <a :href="links.priorities" target="_blank" rel="noopener" class="btn btn-outline">
+        <button class="btn btn-outline" @click="scrollToSection('voice')">
           Share your priorities
-        </a>
+        </button>
       </div>
     </div>
   </section>
