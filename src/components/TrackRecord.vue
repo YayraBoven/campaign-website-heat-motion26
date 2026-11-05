@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import PhotoBox from './PhotoBox.vue'
-import { trackRecord, gallery } from '@/data/content'
+import { trackRecord } from '@/data/content'
 import { vReveal } from '@/utils'
 
 const filters = [
@@ -26,7 +26,7 @@ const whoLabel = { maria: 'Maria', yayra: 'Yayra', both: 'Maria & Yayra' }
         <p class="eyebrow">Track record</p>
         <h2 class="section-title">We’ve already been doing the work</h2>
         <p class="section-lead">
-          From parliament to residence halls to the volleyball court — leadership isn’t new to us.
+          From parliament to residence halls to the volleyball court, leadership isn’t new to us.
         </p>
       </div>
 
@@ -62,17 +62,6 @@ const whoLabel = { maria: 'Maria', yayra: 'Yayra', both: 'Maria & Yayra' }
           </article>
         </li>
       </TransitionGroup>
-
-      <!-- Gallery -->
-      <div class="gallery-head" v-reveal>
-        <p class="eyebrow">On the trail</p>
-        <h2 class="section-title">Campaign moments</h2>
-      </div>
-      <div class="gallery">
-        <figure v-for="(g, i) in gallery" :key="i" v-reveal="(i % 3) * 100" class="shot">
-          <PhotoBox :src="g.photo" :label="g.caption" :ratio="i % 3 === 1 ? '3 / 4' : '1 / 1'" />
-        </figure>
-      </div>
     </div>
   </section>
 </template>
@@ -232,25 +221,6 @@ const whoLabel = { maria: 'Maria', yayra: 'Yayra', both: 'Maria & Yayra' }
 }
 .list-move {
   transition: transform 0.35s ease;
-}
-
-/* ---------- Gallery ---------- */
-.gallery-head {
-  margin-top: 90px;
-  text-align: center;
-}
-.gallery {
-  margin-top: 28px;
-  columns: 3 260px;
-  column-gap: 18px;
-}
-.shot {
-  break-inside: avoid;
-  margin: 0 0 18px;
-  transition: transform 0.3s ease;
-}
-.shot:hover {
-  transform: scale(1.02);
 }
 
 @media (max-width: 640px) {

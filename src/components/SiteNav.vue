@@ -30,7 +30,7 @@ onMounted(() => {
     },
     { rootMargin: '-45% 0px -50% 0px' },
   )
-  ;['about', 'issues', 'solutions', 'track-record', 'merch', 'vote'].forEach((id) => {
+  ;['about', 'issues', 'solutions', 'voice', 'track-record', 'merch', 'vote'].forEach((id) => {
     const el = document.getElementById(id)
     if (el) observer.observe(el)
   })

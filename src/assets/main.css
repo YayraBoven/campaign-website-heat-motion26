@@ -1,5 +1,5 @@
 /* =========================================================
-   HEAT · MOTION '26 — GLOBAL STYLES
+   HEAT · MOTION '26 - GLOBAL STYLES
    Brand colours live here. Change them once, they update everywhere.
    ========================================================= */
 :root {
@@ -17,6 +17,7 @@
 
   --font-display: 'Lora', Georgia, serif;
   --font-body: 'Montserrat', system-ui, sans-serif;
+  --font-hand: 'Caveat', 'Comic Sans MS', cursive;
 
   --radius: 14px;
   --shadow: 0 10px 30px rgba(34, 49, 39, 0.1);

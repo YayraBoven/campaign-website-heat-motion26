@@ -78,6 +78,10 @@ defineProps({
         />
         <circle cx="12" cy="13.5" r="3.5" />
       </template>
+      <template v-else-if="name === 'lock'">
+        <rect x="4" y="11" width="16" height="10" rx="2" />
+        <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+      </template>
       <path
         v-else-if="name === 'flame'"
         d="M12 22c4 0 7-2.8 7-6.8 0-3.4-2.3-5.8-4-7.7-.4 2-1.4 3.2-2.6 3.8.3-3.5-1.2-6.6-3.9-9.3.1 3.6-1.6 5.6-3.1 7.6C4.3 11.2 5 13 5 15.2 5 19.2 8 22 12 22z"

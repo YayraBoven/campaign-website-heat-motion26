@@ -12,7 +12,7 @@ import { vReveal } from '@/utils'
         <div>
           <p class="eyebrow">Merch</p>
           <h2 class="section-title">Wear the HEAT</h2>
-          <p class="section-lead">Rep the campaign around campus. Limited pieces — grab yours.</p>
+          <p class="section-lead">Rep the campaign around campus. Limited pieces, grab yours.</p>
         </div>
         <span v-if="merch.comingSoon" class="soon">Coming soon</span>
       </div>
@@ -24,7 +24,6 @@ import { vReveal } from '@/utils'
           </div>
           <div class="item-body">
             <h3>{{ item.name }}</h3>
-            <p class="price">{{ item.price }}</p>
             <a
               v-if="!merch.comingSoon"
               :href="links.merchOrder"
@@ -102,11 +101,7 @@ import { vReveal } from '@/utils'
 .item h3 {
   font-size: 1.02rem;
   color: var(--green);
-}
-.price {
-  color: var(--muted);
-  font-weight: 600;
-  margin: 2px 0 12px;
+  margin-bottom: 12px;
 }
 .order {
   display: inline-flex;
