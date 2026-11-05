@@ -70,14 +70,16 @@ export const candidates = [
     id: 'maria',
     name: 'Maria Bortei-Doku',
     role: 'ASC President Aspirant',
-    bio: 'Short bio goes here: year group, major, and one line on what drives Maria. (Replace this placeholder.)',
+    course: 'BSc. Economics, Class of 2028',
+    bio: 'Maria Emmanuellee Borteley Bortei-Doku is a student leader at Ashesi University with a strong interest in governance, public policy, and institutional development. A former Deputy Speaker of the Ashesi Parliament, Founder and President of ASPAG, and President of the Ashesi Economics Students Union, her experiences have equipped her with an understanding of student governance, representation, and the workings of student leadership at Ashesi. She is passionate about advocacy, service, and accountable leadership.',
     photo: '/images/maria.jpg',
   },
   {
     id: 'yayra',
     name: 'Yayra Boven',
     role: 'ASC Vice-President Aspirant',
-    bio: 'Short bio goes here: year group, major, and one line on what drives Yayra. (Replace this placeholder.)',
+    course: 'BSc. Management Information Systems, Class of 2028',
+    bio: "Harriet Yayra Boven Fiahagbe is an active member of the Ashesi community, driven by a passion for people, service, and meaningful impact. Her experiences as TEDxAshesi's 2026 Public Relations Lead and a Peer Support Coordinator in the Provost's Office have exposed her to different facets of student life, strengthening her understanding of student needs and experiences. She is also a content creator passionate about storytelling and connecting with people.",
     photo: '/images/yayra.jpg',
   },
 ]
@@ -101,7 +103,7 @@ export const message = {
   ],
   full: [
     'Months deep, the 11:59s keep piling and multiple class WhatsApp group chats keep buzzing with “guys, when are we meeting for our presentation prep?”. Then a course that seems to be smooth sailing for everyone else questions your intelligence and abilities. You need to lock in, so you drop your paint canvas. You stop posting on your business page. No more visits to the music studio. The dream freezes up.',
-    'Ashesi is stressful, and that’s why we are here. We’ve spent semesters in the system, studying and participating in all aspects of students’ lives, from parliament, to resident assistancy, to UBORA planning, to volleyball practice, while ultimately being students. The plain and simple of our tenure is to restore student morale and be a supportive council that prioritises every single Ashesi student. Admittedly, we can’t change the system. But we promise innovative ways to beat it, and to ensure that students don’t lose themselves to the rigour of the school.',
+    'Ashesi is stressful, and that’s why we are here. We have spent semesters immersed in the system, studying and participating in various aspects of student life, from Parliament and residential assistancy to UBORA planning, basketball and football practices, all while navigating our primary responsibility as students. The plain and simple of our tenure is to restore student morale and be a supportive council that prioritises every single Ashesi student. Admittedly, we can’t change the system. But we promise innovative ways to beat it, and to ensure that students don’t lose themselves to the rigour of the school.',
     'We will lead a student council that believes every student, with every unique opportunity and experience, deserves to be recognised. This is the time for recovery and recuperation: a tenure that creates convenience for students and showcases clear improvements in campus culture, moods and stress levels, while upholding the rigour and quality Ashesi promises.',
     'Ashesi is all the way on the mountain. It provides the perfect environment for focus, but it also fosters feelings of detachment, loneliness and isolation. We cannot move Ashesi physically, but we can shift the culture. Too often, decisions about our academic life are made with limited consultation. We promise student involvement and initiative, and a government that prioritises amplifying students’ voices. Until your passions are explored and your physical and mental health are taken care of, we will keep fighting.',
     'We recognise the times we are in: the double intake system, the ASC’s lack of finances, low student morale, uncertainty. Giving our lives, time and intellect to this cause will be an honour. Our legacy will be seeds planted in a garden we actually get to see.',
@@ -349,38 +351,31 @@ export const voice = {
 // ---------- TRACK RECORD (placeholders - replace with real details) ----------
 // who: 'maria' | 'yayra' | 'both'
 export const trackRecord = [
-  {
-    who: 'maria',
-    year: '20XX – 20XX',
-    title: 'Ashesi Student Parliament',
-    role: 'Role / position',
-    text: 'One or two lines on what was achieved in this role. (Placeholder.)',
-    photo: null,
-  },
-  {
-    who: 'yayra',
-    year: '20XX – 20XX',
-    title: 'Resident Assistant',
-    role: 'Role / position',
-    text: 'One or two lines on what was achieved in this role. (Placeholder.)',
-    photo: null,
-  },
-  {
-    who: 'both',
-    year: '20XX',
-    title: 'UBORA Planning Committee',
-    role: 'Role / position',
-    text: 'One or two lines on what was achieved in this role. (Placeholder.)',
-    photo: null,
-  },
-  {
-    who: 'maria',
-    year: '20XX – 20XX',
-    title: 'Volleyball Team',
-    role: 'Role / position',
-    text: 'One or two lines on what was achieved in this role. (Placeholder.)',
-    photo: null,
-  },
+  // ---------- MARIA ----------
+  { who: 'maria', title: 'Ashesi Economics Students Union (AESU)', role: 'President', text: '' },
+  { who: 'maria', title: 'African Students in Politics, Advocacy and Governance (ASPAG)', role: 'Founder and President', text: '' },
+  { who: 'maria', title: 'Ashesi Parliament', role: 'Former Deputy Speaker', text: '' },
+  { who: 'maria', title: 'Ashesi Constitution Review Team', role: 'General Secretary', text: '' },
+  { who: 'maria', title: 'Ashesi University', role: 'Resident Assistant', text: '' },
+  { who: 'maria', title: 'Ashesi Leadership Summit 2026', role: 'Coordinator', text: '' },
+  { who: 'maria', title: 'The Cause (Mental Health Advocacy)', role: 'Founder', text: '' },
+  { who: 'maria', title: 'Project Sustainability', role: 'President', text: '' },
+  { who: 'maria', title: 'Raising Empathetic Leaders to Combat Bullying (ABC)', role: 'Campaign Lead', text: '' },
+  { who: 'maria', title: 'The African Network (TAN)', role: 'Youth Advocacy and AfCFTA Panel Speaker', text: '' },
+  { who: 'maria', title: 'Morning Glory International School', role: 'Head Girl', text: '' },
+
+  // ---------- YAYRA ----------
+  { who: 'yayra', title: 'TEDxAshesi', role: 'Public Relations Lead (2026) · Public Relations Co-Lead (previous session)', text: '' },
+  { who: 'yayra', title: 'Ashesi Student Council (ASC)', role: 'Public Relations Committee Member', text: '' },
+  { who: 'yayra', title: 'Provost’s Office', role: 'Peer Support Coordinator', text: '' },
+  { who: 'yayra', title: 'Ashesi Women’s Football Team', role: 'Co-Captain (previous session)', text: '' },
+  { who: 'yayra', title: 'Ashesi Commencement Support', role: 'Volunteer', text: '' },
+  { who: 'yayra', title: 'Career Services', role: 'Volunteer', text: '' },
+  { who: 'yayra', title: 'UBORA Awards', role: 'Sportswoman of the Year & Rising Star Award Recipient', text: '' },
+  { who: 'yayra', title: 'The Boven Foundation', role: 'Co-Founder', text: '' },
+  { who: 'yayra', title: 'Morgan International Community School', role: 'SRC Vice President', text: '' },
+  { who: 'yayra', title: 'Foundations of Design and Entrepreneurship (FDE)', role: 'Coach', text: '' },
+  { who: 'yayra', title: 'Ashesi University', role: 'Peer Academic Advisor', text: '' },
 ]
 
 // ---------- MERCH (placeholders) ----------

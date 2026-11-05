@@ -1,16 +1,13 @@
 <script setup>
 import { ref, computed } from 'vue'
-import PhotoBox from './PhotoBox.vue'
 import { trackRecord } from '@/data/content'
 import { vReveal } from '@/utils'
 
 const filters = [
-  { id: 'all', label: 'Everything' },
   { id: 'maria', label: 'Maria' },
   { id: 'yayra', label: 'Yayra' },
-  { id: 'both', label: 'Together' },
 ]
-const filter = ref('all')
+const filter = ref('maria')
 
 const items = computed(() =>
   filter.value === 'all' ? trackRecord : trackRecord.filter((t) => t.who === filter.value),
@@ -26,7 +23,7 @@ const whoLabel = { maria: 'Maria', yayra: 'Yayra', both: 'Maria & Yayra' }
         <p class="eyebrow">Track record</p>
         <h2 class="section-title">We’ve already been doing the work</h2>
         <p class="section-lead">
-          From parliament to residence halls to the volleyball court, leadership isn’t new to us.
+          From parliament to residence halls to the baketball court and the football pitch, leadership isn’t new to us.
         </p>
       </div>
 
@@ -47,17 +44,12 @@ const whoLabel = { maria: 'Maria', yayra: 'Yayra', both: 'Maria & Yayra' }
         <li v-for="item in items" :key="item.title" class="entry">
           <span class="marker" :class="item.who" aria-hidden="true"></span>
           <article class="card">
-            <div class="card-photo">
-              <PhotoBox :src="item.photo" :label="item.title" ratio="4 / 3" />
-            </div>
             <div class="card-body">
               <div class="meta">
-                <span class="year">{{ item.year }}</span>
-                <span class="who" :class="item.who">{{ whoLabel[item.who] }}</span>
               </div>
               <h3>{{ item.title }}</h3>
               <p class="role">{{ item.role }}</p>
-              <p>{{ item.text }}</p>
+              <p v-if="item.text">{{ item.text }}</p>
             </div>
           </article>
         </li>
@@ -141,7 +133,7 @@ const whoLabel = { maria: 'Maria', yayra: 'Yayra', both: 'Maria & Yayra' }
 
 .card {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
   background: var(--cream);
   border-radius: var(--radius);

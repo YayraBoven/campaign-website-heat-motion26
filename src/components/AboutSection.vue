@@ -64,8 +64,9 @@ const expanded = ref(false)
           <PhotoBox :src="c.photo" :label="`${c.name.split(' ')[0]} portrait`" ratio="4 / 5" />
           <div class="candidate-body">
             <p class="role">{{ c.role }}</p>
-            <h3>{{ c.name }}</h3>
-            <p>{{ c.bio }}</p>
+                        <h3>{{ c.name }}</h3>
+            <p v-if="c.course" class="course">{{ c.course }}</p>
+            <p v-if="c.bio">{{ c.bio }}</p>
           </div>
         </article>
       </div>
@@ -231,6 +232,13 @@ const expanded = ref(false)
   text-transform: uppercase;
   color: var(--crimson);
 }
+.course {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green);
+  margin: -4px 0 12px;
+}
+
 .candidate h3 {
   font-family: var(--font-display);
   font-size: 1.7rem;
