@@ -43,7 +43,7 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
           <template v-else-if="phase === 'open'">
             Voting is <strong>OPEN</strong> · closes in {{ parts.days }}d {{ parts.hours }}h
           </template>
-          <template v-else>Voting has closed · thank you!</template>
+          <template v-else>Voting has closed · Thank you!</template>
         </button>
 
         <div class="socials">
