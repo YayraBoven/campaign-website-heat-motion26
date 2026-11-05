@@ -7,7 +7,7 @@ import { ui, vReveal } from '@/utils'
 const activeId = ref(issues[0].id)
 const current = computed(() => issues.find((i) => i.id === activeId.value))
 
-// Solutions may be a plain list or grouped with headings — make both look the same
+// Solutions may be a plain list or grouped with headings - make both look the same
 const solutionGroups = computed(() => {
   const s = current.value.solutions
   return typeof s[0] === 'string' ? [{ heading: null, items: s }] : s
@@ -35,7 +35,7 @@ function onKey(e, index) {
         <p class="eyebrow">Issues identified &amp; our solutions</p>
         <h2 class="section-title">We listened. Here’s the plan.</h2>
         <p class="section-lead">
-          Pick an area to see the problems students raised — then see exactly how we’ll tackle them.
+          Pick an area to see the problems students raised, then see exactly how we’ll tackle them.
         </p>
       </div>
 

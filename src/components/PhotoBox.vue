@@ -8,12 +8,19 @@ defineProps({
   alt: { type: String, default: '' },
   ratio: { type: String, default: '4 / 3' }, // e.g. '1 / 1', '3 / 4', '16 / 9'
   dark: { type: Boolean, default: false }, // use on dark backgrounds
+  position: { type: String, default: null }, // CSS object-position, e.g. 'center top'
 })
 </script>
 
 <template>
   <div class="photo" :class="{ dark, empty: !src }" :style="{ aspectRatio: ratio }">
-    <img v-if="src" :src="src" :alt="alt || label" loading="lazy" />
+    <img
+      v-if="src"
+      :src="src"
+      :alt="alt || label"
+      loading="lazy"
+      :style="position && { objectPosition: position }"
+    />
     <div v-else class="placeholder">
       <AppIcon name="camera" :size="34" />
       <span>{{ label }}</span>

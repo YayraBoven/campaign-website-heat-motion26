@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "campaign-website-heat-motion26",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // vue-router uses createWebHistory, so unknown paths must serve index.html
+    "not_found_handling": "single-page-application",
+    // only the API runs the Worker; every other path is served straight from dist/
+    "run_worker_first": ["/api/*"]
+  },
+  // Student Voice wall + private inbox. Schema: migrations/
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "heat-voice",
+      "database_id": "d07b059a-fdf7-49fb-9f17-cf4644dc46d3"
+    }
+  ]
+  // Secret (not in this file): ADMIN_KEY — the password for /inbox.
+  //   npx wrangler secret put ADMIN_KEY
+}

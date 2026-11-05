@@ -1,8 +1,9 @@
 <script setup>
 import AppIcon from './AppIcon.vue'
 import PhotoBox from './PhotoBox.vue'
-import { links, socials, photos, election } from '@/data/content'
-import { scrollToSection, useCountdown } from '@/utils'
+import { socials, photos, election } from '@/data/content'
+import { scrollToSection, goVoteAndPromptCalendar, useCountdown } from '@/utils'
+import { siteLinks, external } from '@/siteLinks'
 
 const { phase, parts } = useCountdown(election.votingOpens, election.votingCloses)
 </script>
@@ -26,7 +27,7 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
         <p class="slogan">Vote for change. Vote for voice. Vote for relief.</p>
 
         <div class="actions">
-          <a :href="links.whatsapp" target="_blank" rel="noopener" class="btn btn-primary">
+          <a v-bind="external(siteLinks.whatsapp)" class="btn btn-primary">
             <AppIcon name="whatsapp" /> Join Team HEAT
           </a>
           <a href="#issues" class="btn btn-outline" @click.prevent="scrollToSection('issues')">
@@ -34,7 +35,7 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
           </a>
         </div>
 
-        <button class="countdown-chip" @click="scrollToSection('vote')">
+        <button class="countdown-chip" @click="goVoteAndPromptCalendar">
           <span class="dot" :class="phase"></span>
           <template v-if="phase === 'before'">
             Voting opens in
@@ -50,9 +51,7 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
           <a
             v-for="s in socials"
             :key="s.name"
-            :href="s.url"
-            target="_blank"
-            rel="noopener"
+            v-bind="external(siteLinks[s.link])"
             :aria-label="s.name"
           >
             <AppIcon :name="s.icon" :size="18" />
@@ -65,7 +64,7 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
           <PhotoBox :src="photos.heroTogether" label="Maria & Yayra together" ratio="4 / 5" dark />
         </div>
 
-        <a :href="links.tiktokVideo" target="_blank" rel="noopener" class="watch">
+        <a v-bind="external(siteLinks.tiktokVideo)" class="watch">
           <span class="watch-label">Watch now</span>
           <span class="play"><AppIcon name="play" :size="34" /></span>
         </a>
