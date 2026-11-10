@@ -1,4 +1,6 @@
 // Talks to the Student Voice API in worker/index.js
+import { apiUrl } from '@/apiBase'
+
 export const NOTE_COLORS = ['yellow', 'pink', 'green', 'blue', 'orange']
 export const NOTE_MAX = 280
 export const MESSAGE_MAX = 2000
@@ -11,7 +13,7 @@ async function request(path, { method = 'GET', body, key } = {}) {
   if (body) init.body = JSON.stringify(body)
   let res
   try {
-    res = await fetch(path, init)
+    res = await fetch(apiUrl(path), init)
   } catch {
     throw new Error('Couldn’t reach the server. Check your connection and try again.')
   }

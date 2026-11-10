@@ -37,19 +37,40 @@ const EDITABLE_LINKS = {
 }
 const LINK_LABELS = { whatsapp: 'WhatsApp', tiktok: 'TikTok', tiktokVideo: 'TikTok' }
 
+// The Vercel copy of the site calls this Worker directly (not through a proxy)
+// so CF-Connecting-IP is the visitor's own IP and everyone gets their own rate limit.
+const CORS_ORIGINS = /^https:\/\/campaign-website-heat-motion26(-[a-z0-9-]+)?\.vercel\.app$/
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
+    const cors = corsHeaders(request)
+    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors })
+    let res
     try {
-      const res = await route(request, env, url)
-      if (res) return res
-      return json({ error: 'Not found' }, 404)
+      res = (await route(request, env, url)) || json({ error: 'Not found' }, 404)
     } catch (err) {
-      if (err instanceof HttpError) return json({ error: err.message }, err.status)
-      console.error(err)
-      return json({ error: 'Something went wrong. Please try again.' }, 500)
+      if (err instanceof HttpError) res = json({ error: err.message }, err.status)
+      else {
+        console.error(err)
+        res = json({ error: 'Something went wrong. Please try again.' }, 500)
+      }
     }
+    for (const [k, v] of Object.entries(cors)) res.headers.set(k, v)
+    return res
   },
+}
+
+function corsHeaders(request) {
+  const origin = request.headers.get('Origin') || ''
+  if (!CORS_ORIGINS.test(origin)) return { Vary: 'Origin' }
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Max-Age': '86400',
+    Vary: 'Origin',
+  }
 }
 
 async function route(request, env, url) {

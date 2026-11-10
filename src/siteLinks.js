@@ -1,12 +1,13 @@
 import { reactive } from 'vue'
 import { links } from '@/data/content'
+import { apiUrl } from '@/apiBase'
 
 // Links from src/data/content.js, overridden by whatever Maria & Yayra saved at /inbox
 export const siteLinks = reactive({ ...links })
 
 export async function loadSiteLinks() {
   try {
-    const res = await fetch('/api/links')
+    const res = await fetch(apiUrl('/api/links'))
     if (!res.ok) return
     const data = await res.json()
     Object.assign(siteLinks, data.links)
