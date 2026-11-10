@@ -28,7 +28,7 @@ const LINK_FIELDS = [
   {
     key: 'whatsapp',
     label: 'WhatsApp link',
-    where: 'The “Join Team HEAT” buttons and the WhatsApp icon',
+    where: 'The “Join Team MOTION” buttons and the WhatsApp icon',
     placeholder: 'https://chat.whatsapp.com/… or https://whatsapp.com/channel/…',
   },
   {
@@ -137,7 +137,7 @@ onMounted(() => {
   } catch {
     // ignore
   }
-  document.title = 'Team inbox · HEAT'
+  document.title = 'Team inbox · MOTION'
   const robots = document.createElement('meta')
   robots.name = 'robots'
   robots.content = 'noindex'
@@ -149,7 +149,7 @@ onMounted(() => {
 <template>
   <div class="page">
     <header class="top">
-      <RouterLink to="/" class="brand"><AppIcon name="flame" /> HEAT · Team inbox</RouterLink>
+      <RouterLink to="/" class="brand"><AppIcon name="flame" /> MOTION · Team inbox</RouterLink>
       <button v-if="loggedIn" class="ghost" @click="logout">Log out</button>
     </header>
 

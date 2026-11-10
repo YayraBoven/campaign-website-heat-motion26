@@ -1,5 +1,5 @@
 // =====================================================================
-//  HEAT · MOTION '26 - STUDENT VOICE API
+//  MOTION · MOTION '26 - STUDENT VOICE API
 //  Runs only for /api/* (see wrangler.jsonc); everything else is the
 //  static site in dist/.
 //
@@ -153,7 +153,7 @@ function votingCalendar(url) {
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//HEAT Motion 26//Vote//EN',
+    'PRODID:-//MOTION Motion 26//Vote//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',

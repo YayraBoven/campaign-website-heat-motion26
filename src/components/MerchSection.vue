@@ -11,10 +11,9 @@ import { vReveal } from '@/utils'
       <div v-reveal class="head">
         <div>
           <p class="eyebrow">Merch</p>
-          <h2 class="section-title">Wear the HEAT</h2>
-          <p class="section-lead">Rep the campaign around campus. Limited pieces, grab yours.</p>
+          <h2 class="section-title">Join the MOTION</h2>
+          <p class="section-lead">Rep the campaign around campus. Grab yours when you see the team.</p>
         </div>
-        <span v-if="merch.comingSoon" class="soon">Coming soon</span>
       </div>
 
       <div class="grid">
@@ -33,7 +32,6 @@ import { vReveal } from '@/utils'
             >
               Order <AppIcon name="arrow" :size="16" />
             </a>
-            <span v-else class="order disabled">Dropping soon</span>
           </div>
         </article>
       </div>

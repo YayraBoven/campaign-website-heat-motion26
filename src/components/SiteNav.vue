@@ -45,9 +45,9 @@ onUnmounted(() => {
   <header class="nav" :class="{ scrolled: scrolled || menuOpen }">
     <div class="container nav-inner">
       <a href="#top" class="brand" @click.prevent="go('top')">
-        <img src="/logo-white.png" alt="MY HEAT logo" class="brand-logo" />
+        <img src="/logo-white.png" alt="MY MOTION logo" class="brand-logo" />
         <span class="brand-text">
-          <strong>HEAT</strong>
+          <strong>MOTION</strong>
           <small>Maria &amp; Yayra for ASC</small>
         </span>
       </a>
@@ -123,8 +123,8 @@ onUnmounted(() => {
 
 .brand-text strong {
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  letter-spacing: 0.08em;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
 }
 
 .brand-text small {

@@ -18,7 +18,7 @@ const heading = computed(
   () =>
     ({
       before: 'Don’t forget to vote',
-      open: 'Voting is open. Vote HEAT',
+      open: 'Voting is open. Vote MOTION',
       closed: 'Thank you for voting',
     })[phase.value],
 )
@@ -40,7 +40,7 @@ const sub = computed(
 
     <div class="container inner">
       <div v-reveal class="center">
-        <p class="eyebrow light">Motion '26 · Vote</p>
+        <p class="eyebrow light">HEAT '26 · Vote</p>
         <h2 class="title">{{ heading }}</h2>
         <p class="names">Maria Bortei-Doku &amp; Yayra Boven</p>
         <p class="for">as ASC President and Vice-President</p>
@@ -72,7 +72,7 @@ const sub = computed(
 
       <div v-reveal class="actions">
         <a v-bind="external(siteLinks.whatsapp)" class="btn btn-light">
-          <AppIcon name="whatsapp" /> Join Team HEAT
+          <AppIcon name="whatsapp" /> Join Team MOTION
         </a>
         <button v-if="phase !== 'closed'" class="btn btn-outline" @click="ui.calendarPrompt = true">
           <AppIcon name="calendar" :size="18" /> Add to calendar

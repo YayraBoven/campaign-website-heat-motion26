@@ -8,8 +8,8 @@ import { siteLinks, external } from '@/siteLinks'
 <template>
   <footer class="footer">
     <div class="container inner">
-      <img src="/logo-white.png" alt="MY HEAT logo" class="logo" />
-      <p class="tagline">HEAT · Motion '26</p>
+      <img src="/logo-white.png" alt="MY MOTION logo" class="logo" />
+      <p class="tagline">MOTION · HEAT '26</p>
       <p class="slogan">Vote for change. Vote for voice. Vote for relief.</p>
 
       <nav class="links" aria-label="Footer">
@@ -21,7 +21,7 @@ import { siteLinks, external } from '@/siteLinks'
           >{{ link.label }}</a
         >
         <a href="#vote" @click.prevent="scrollToSection('vote')">Vote</a>
-        <a :href="links.manifesto" download="HEAT-Manifesto-Motion26.pdf">Manifesto</a>
+        <a :href="links.manifesto" download="MOTION-Manifesto-Heat26.pdf">Manifesto</a>
       </nav>
 
       <div class="socials">
@@ -38,7 +38,7 @@ import { siteLinks, external } from '@/siteLinks'
       <a v-if="links.email" :href="`mailto:${links.email}`" class="email">{{ links.email }}</a>
 
       <p class="copy">
-        © {{ new Date().getFullYear() }} HEAT · Maria Bortei-Doku &amp; Yayra Boven
+        © {{ new Date().getFullYear() }} MOTION · Maria Bortei-Doku &amp; Yayra Boven
       </p>
     </div>
   </footer>

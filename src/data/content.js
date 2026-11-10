@@ -1,5 +1,5 @@
 // =====================================================================
-//  HEAT · MOTION '26 - ALL WEBSITE CONTENT LIVES HERE
+//  MOTION · MOTION '26 - ALL WEBSITE CONTENT LIVES HERE
 //  To change text, links, dates or photos, edit this file only.
 //  Photos: put image files in the `public/images/` folder, then set
 //  the path below, e.g.  photo: '/images/maria.jpg'
@@ -10,7 +10,7 @@
 // whatsapp, tiktok and tiktokVideo can also be changed by Maria & Yayra at /inbox
 // (Links tab). What they save there wins over the values here.
 export const links = {
-  whatsapp: '#', // Join Team HEAT buttons + WhatsApp icon - channel/group link
+  whatsapp: '#', // Join Team MOTION buttons + WhatsApp icon - channel/group link
   tiktok: '#', // TikTok icon - campaign TikTok profile
   tiktokVideo: '#', // "Watch now" play button - the TikTok campaign video
   manifesto: '/manifesto.pdf', // file in the public/ folder
@@ -30,7 +30,7 @@ export const election = {
   votingCloses: '2026-11-22T23:59:00Z', // 22 Nov, 11:59 PM
   // the event people get from "Add to calendar"
   calendar: {
-    title: 'ASC Elections: vote HEAT (Maria & Yayra)',
+    title: 'ASC Elections: vote MOTION (Maria & Yayra)',
     details:
       'Voting for ASC President and Vice-President is open from 18 Nov, 12:00 AM to 22 Nov, 11:59 PM (Ghana time). Vote Maria Bortei-Doku & Yayra Boven. Every single vote counts.',
   },
@@ -43,7 +43,7 @@ export const election = {
     {
       date: '18th – 22nd Nov',
       title: 'Voting Period',
-      text: 'Cast your vote for HEAT. Every single vote counts.',
+      text: 'Cast your vote for MOTION. Every single vote counts.',
       highlight: true,
     },
     {
@@ -93,7 +93,7 @@ export const photos = {
 // ---------- ABOUT / OUR MESSAGE ----------
 export const statement = {
   highlight: 'Ashesi is stressful, and that’s why we are here.',
-  text: 'As student council president and vice, we bring the HEAT to melt the dark icy clouds of stress and anxiety many Ashesi students go through, and restore student morale with a council that prioritises every single student.',
+  text: 'As student council president and vice, we bring the MOTION to melt the dark icy clouds of stress and anxiety many Ashesi students go through, and restore student morale with a council that prioritises every single student.',
 }
 
 export const message = {
@@ -382,9 +382,9 @@ export const trackRecord = [
 export const merch = {
   comingSoon: true, // set to false when merch is ready to order
   items: [
-    { name: 'HEAT T-Shirt', photo: null },
-    { name: 'HEAT Wristband', photo: null },
-    { name: 'HEAT Stickers', photo: null },
-    { name: 'HEAT Tote Bag', photo: null },
+    { name: 'MOTION T-Shirt', photo: null },
+    { name: 'MOTION Wristband', photo: null },
+    { name: 'MOTION Stickers', photo: null },
+    { name: 'MOTION Tote Bag', photo: null },
   ],
 }

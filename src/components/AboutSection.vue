@@ -50,7 +50,7 @@ const expanded = ref(false)
           </div>
         </div>
 
-        <p class="signoff">{{ message.signoff }} <span>HEAT!</span></p>
+        <p class="signoff">{{ message.signoff }} <span>MOTION!</span></p>
 
         <button class="read-more" :aria-expanded="expanded" @click="expanded = !expanded">
           {{ expanded ? 'Show less' : 'Read our full message' }}

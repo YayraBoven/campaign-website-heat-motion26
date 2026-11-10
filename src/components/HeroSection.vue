@@ -15,9 +15,9 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
 
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Motion '26 · ASC Elections</p>
+        <p class="eyebrow">HEAT '26 · ASC Elections</p>
 
-        <h1>Bring the <span class="heat">HEAT</span> to Ashesi.</h1>
+                        <h1><span class="heat">MOTION</span> is coming<br />to Ashesi.</h1>
 
         <p class="names">
           Maria Bortei-Doku <span>&amp;</span> Yayra Boven<br />
@@ -28,7 +28,7 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
 
         <div class="actions">
           <a v-bind="external(siteLinks.whatsapp)" class="btn btn-primary">
-            <AppIcon name="whatsapp" /> Join Team HEAT
+            <AppIcon name="whatsapp" /> Join Team MOTION
           </a>
           <a href="#issues" class="btn btn-outline" @click.prevent="scrollToSection('issues')">
             Read our plan
@@ -132,7 +132,7 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
 h1 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
+    font-size: clamp(2.4rem, 5vw, 3.9rem);
   line-height: 1.05;
   margin: 18px 0 22px;
 }

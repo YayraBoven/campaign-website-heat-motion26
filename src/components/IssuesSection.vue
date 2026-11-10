@@ -100,7 +100,7 @@ function onKey(e, index) {
                 <div class="block solutions">
                   <div class="block-head">
                     <span class="tag tag-solution">Our solutions</span>
-                    <h3>How HEAT will fix it</h3>
+                    <h3>How MOTION will fix it</h3>
                   </div>
                   <div v-for="(group, gi) in solutionGroups" :key="gi" class="group">
                     <h4 v-if="group.heading">{{ group.heading }}</h4>
@@ -121,9 +121,9 @@ function onKey(e, index) {
       <div v-reveal class="download">
         <div>
           <h3>Want every detail?</h3>
-          <p>Download the full HEAT manifesto and read it in your own time.</p>
+          <p>Download the full MOTION manifesto and read it in your own time.</p>
         </div>
-        <a :href="links.manifesto" download="HEAT-Manifesto-Motion26.pdf" class="btn btn-primary">
+        <a :href="links.manifesto" download="MOTION-Manifesto-Heat26.pdf" class="btn btn-primary">
           <AppIcon name="download" :size="18" /> Download manifesto
         </a>
       </div>
