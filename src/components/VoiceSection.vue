@@ -20,8 +20,16 @@ const mode = ref('wall') // 'wall' | 'private'
 const notes = ref([])
 const loading = ref(true)
 const loadError = ref('')
-const shown = ref(24)
-const visibleNotes = computed(() => notes.value.slice(0, shown.value))
+// The busier the wall, the smaller the notes, so a full wall still fits on screen.
+// Small notes clip long text; tap one to read it all.
+const density = computed(() => {
+  const n = notes.value.length
+  if (n > 40) return 'dense'
+  if (n > 12) return 'compact'
+  return 'roomy'
+})
+const openNote = ref(null)
+const toggleNote = (id) => (openNote.value = openNote.value === id ? null : id)
 
 const draft = ref('')
 const color = ref(NOTE_COLORS[0])
@@ -166,24 +174,29 @@ onMounted(loadNotes)
             <p v-else-if="!notes.length" class="board-msg">
               The wall is empty. Be the first to leave a note.
             </p>
-            <TransitionGroup v-else tag="ul" name="note" class="notes">
-              <li
-                v-for="n in visibleNotes"
-                :key="n.id"
-                class="note"
-                :class="[`note-${n.color}`, { fresh: n.id === justPosted }]"
-                :style="{ '--tilt': `${tilt(n.id)}deg` }"
-              >
-                <span class="pin" aria-hidden="true"></span>
-                <p class="note-body">{{ n.body }}</p>
-                <time class="note-time" :datetime="new Date(n.createdAt).toISOString()">
-                  {{ timeAgo(n.createdAt) }}
-                </time>
+            <TransitionGroup v-else tag="ul" name="note" class="notes" :class="density">
+              <li v-for="n in notes" :key="n.id" class="slot" :class="{ open: n.id === openNote }">
+                <div
+                  class="note"
+                  :class="[`note-${n.color}`, { fresh: n.id === justPosted }]"
+                  :style="{ '--tilt': `${tilt(n.id)}deg` }"
+                  :tabindex="density === 'roomy' ? undefined : 0"
+                  :role="density === 'roomy' ? undefined : 'button'"
+                  :aria-expanded="density === 'roomy' ? undefined : n.id === openNote"
+                  @click="density !== 'roomy' && toggleNote(n.id)"
+                  @keydown.enter.space.prevent="density !== 'roomy' && toggleNote(n.id)"
+                >
+                  <span class="pin" aria-hidden="true"></span>
+                  <p class="note-body">{{ n.body }}</p>
+                  <time class="note-time" :datetime="new Date(n.createdAt).toISOString()">
+                    {{ timeAgo(n.createdAt) }}
+                  </time>
+                </div>
               </li>
             </TransitionGroup>
-            <div v-if="notes.length > shown" class="more">
-              <button class="btn btn-outline-dark" @click="shown += 24">Show more notes</button>
-            </div>
+            <p v-if="density !== 'roomy'" class="board-hint">
+              {{ notes.length }} notes · tap one to read it all
+            </p>
           </div>
         </div>
 
@@ -390,6 +403,9 @@ onMounted(loadNotes)
 
 .board {
   min-height: 420px;
+  max-height: min(820px, 85vh);
+  overflow-y: auto;
+  scrollbar-color: #8a5f3a transparent;
   padding: 36px 28px;
   border-radius: calc(var(--radius) + 4px);
   background:
@@ -422,8 +438,13 @@ onMounted(loadNotes)
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 26px 20px;
 }
+.slot {
+  display: flex;
+  flex-direction: column;
+}
 .note {
   position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 160px;
@@ -434,6 +455,9 @@ onMounted(loadNotes)
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
   transform: rotate(var(--tilt));
   transition: transform 0.2s ease;
+}
+.slot:hover {
+  z-index: 1;
 }
 .note:hover {
   transform: rotate(0deg) scale(1.04);
@@ -456,13 +480,93 @@ onMounted(loadNotes)
   font-weight: 600;
   color: rgba(34, 49, 39, 0.55);
 }
-.more {
-  display: flex;
-  justify-content: center;
-  margin-top: 32px;
+
+/* Busier walls: smaller notes, long text clipped until tapped */
+.notes.compact {
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 20px 14px;
 }
-.more .btn {
-  background: var(--cream);
+.notes.dense {
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 16px 10px;
+}
+.notes.compact .slot,
+.notes.dense .slot {
+  position: relative;
+  height: var(--slot);
+}
+.notes.compact {
+  --slot: 136px;
+}
+.notes.dense {
+  --slot: 116px;
+}
+.notes.compact .note,
+.notes.dense .note {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100%;
+  min-height: 0;
+  cursor: pointer;
+}
+.notes.compact .note {
+  padding: 16px 12px 10px;
+}
+.notes.dense .note {
+  padding: 14px 10px 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.26);
+}
+.notes.compact .note-body,
+.notes.dense .note-body {
+  flex: 0 1 auto;
+  margin-bottom: auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.notes.compact .note-body {
+  font-size: 1.12rem;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+.notes.dense .note-body {
+  font-size: 1rem;
+  line-height: 1.15;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+.notes.dense .pin {
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+}
+.notes.dense .note-time {
+  margin-top: 6px;
+  font-size: 0.62rem;
+}
+.slot.open {
+  z-index: 3;
+}
+.slot.open .note {
+  height: auto;
+  min-height: 100%;
+  transform: rotate(0deg) scale(1.12);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.4);
+}
+.slot.open .note-body {
+  display: block;
+}
+.note:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
+}
+.board-hint {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #3d2a17;
 }
 
 /* ---------- Private ---------- */
@@ -589,6 +693,8 @@ onMounted(loadNotes)
 @media (max-width: 640px) {
   .board {
     padding: 28px 16px;
+    /* leave room above/below so the page itself is easy to scroll past */
+    max-height: 70vh;
   }
   .notes {
     grid-template-columns: repeat(2, 1fr);
@@ -599,6 +705,22 @@ onMounted(loadNotes)
   }
   .note-body {
     font-size: 1.2rem;
+  }
+  .notes.dense {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 8px;
+  }
+  .notes.compact {
+    --slot: 142px;
+  }
+  .notes.dense {
+    --slot: 118px;
+  }
+  .notes.compact .note-body {
+    font-size: 1.05rem;
+  }
+  .notes.dense .note-body {
+    font-size: 0.92rem;
   }
   .envelope {
     padding: 26px 22px;
