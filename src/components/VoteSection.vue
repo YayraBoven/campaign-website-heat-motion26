@@ -26,9 +26,9 @@ const heading = computed(
 const sub = computed(
   () =>
     ({
-      before: 'Voting opens 18th November at 12:00 AM.',
-      open: 'Voting closes 22nd November at 11:59 PM.',
-      closed: 'Results will be declared on 25th November.',
+      before: 'Voting opens Friday 20th November at 12:00 AM.',
+      open: 'Voting closes Sunday 22nd November at 11:59 PM.',
+      closed: 'Results will be announced from 25th to 27th November.',
     })[phase.value],
 )
 </script>
@@ -203,7 +203,7 @@ const sub = computed(
 /* ---------- Key dates ---------- */
 .dates {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 18px;
   margin: 56px auto 0;
   max-width: 980px;

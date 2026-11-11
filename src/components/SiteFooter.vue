@@ -21,7 +21,7 @@ import { siteLinks, external } from '@/siteLinks'
           >{{ link.label }}</a
         >
         <a href="#vote" @click.prevent="scrollToSection('vote')">Vote</a>
-        <a :href="links.manifesto" download="MOTION-Manifesto-Heat26.pdf">Manifesto</a>
+                <a :href="links.manifesto" target="_blank" rel="noopener">Manifesto</a>
       </nav>
 
       <div class="socials">

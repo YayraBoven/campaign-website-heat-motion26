@@ -26,29 +26,34 @@ export const socials = [
 
 // ---------- ELECTION DATES (Ghana time, GMT) ----------
 export const election = {
-  votingOpens: '2026-11-18T00:00:00Z', // 18 Nov, 12:00 AM
-  votingCloses: '2026-11-22T23:59:00Z', // 22 Nov, 11:59 PM
+  votingOpens: '2026-11-20T00:00:00Z', // Fri 20 Nov, 12:00 AM
+  votingCloses: '2026-11-22T23:59:00Z', // Sun 22 Nov, 11:59 PM
   // the event people get from "Add to calendar"
   calendar: {
     title: 'ASC Elections: vote MOTION (Maria & Yayra)',
     details:
-      'Voting for ASC President and Vice-President is open from 18 Nov, 12:00 AM to 22 Nov, 11:59 PM (Ghana time). Vote Maria Bortei-Doku & Yayra Boven. Every single vote counts.',
+      'Voting for ASC President and Vice-President is open from Fri 20 Nov, 12:00 AM to Sun 22 Nov, 11:59 PM (Ghana time). Vote Maria Bortei-Doku & Yayra Boven. Every single vote counts.',
   },
   keyDates: [
     {
-      date: '16th / 17th Nov',
+      date: 'Mon 16th & Tue 17th Nov',
       title: 'Manifesto Reading & Debate',
       text: 'Come hear us out. Watch Maria and Yayra present the plan live.',
     },
     {
-      date: '18th – 22nd Nov',
+      date: 'Wed 18th Nov',
+      title: 'Stepping Up to Bat',
+      text: 'With the outgoing ASC executives.',
+    },
+    {
+      date: 'Fri 20th – Sun 22nd Nov',
       title: 'Voting Period',
       text: 'Cast your vote for MOTION. Every single vote counts.',
       highlight: true,
     },
     {
-      date: '25th Nov',
-      title: 'Declaration of Results',
+      date: 'Wed 25th – Fri 27th Nov',
+      title: 'Results Announcement',
       text: 'Results announced to the entire Ashesi community.',
     },
   ],
@@ -93,7 +98,7 @@ export const photos = {
 // ---------- ABOUT / OUR MESSAGE ----------
 export const statement = {
   highlight: 'Ashesi is stressful, and that’s why we are here.',
-  text: 'As student council president and vice, we bring the MOTION to melt the dark icy clouds of stress and anxiety many Ashesi students go through, and restore student morale with a council that prioritises every single student.',
+  text: 'As student council president and vice, we will set Ashesi in MOTION: lifting the weight of stress and anxiety so many students carry, and restoring morale with a council that prioritises every single student.',
 }
 
 export const message = {
@@ -382,9 +387,10 @@ export const trackRecord = [
 export const merch = {
   comingSoon: true, // set to false when merch is ready to order
   items: [
-    { name: 'MOTION T-Shirt', photo: null },
-    { name: 'MOTION Wristband', photo: null },
-    { name: 'MOTION Stickers', photo: null },
-    { name: 'MOTION Tote Bag', photo: null },
+    { name: 'MOTION T-Shirt(Black)', photo: '/images/black.jpg' },
+    { name: 'MOTION T-Shirt (White)', photo: '/images/white.jpg' },
+    { name: 'MOTION Wristband', photo: '/images/bands.jpg' },
+    { name: 'MOTION Stickers', photo: '/images/stickers.jpg' },
+
   ],
 }

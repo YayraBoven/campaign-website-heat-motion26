@@ -118,14 +118,19 @@ function onKey(e, index) {
         </Transition>
       </div>
 
-      <div v-reveal class="download">
+        <div v-reveal class="download">
         <div>
           <h3>Want every detail?</h3>
-          <p>Download the full MOTION manifesto and read it in your own time.</p>
+          <p>Read the full MOTION manifesto online, or download it for later.</p>
         </div>
-        <a :href="links.manifesto" download="MOTION-Manifesto-Heat26.pdf" class="btn btn-primary">
-          <AppIcon name="download" :size="18" /> Download manifesto
-        </a>
+        <div class="download-actions">
+          <a :href="links.manifesto" target="_blank" rel="noopener" class="btn btn-outline-dark">
+            View manifesto
+          </a>
+          <a :href="links.manifesto" download="MOTION-Manifesto-Heat26.pdf" class="btn btn-primary">
+            <AppIcon name="download" :size="18" /> Download
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -318,10 +323,10 @@ function onKey(e, index) {
   border-radius: calc(var(--radius) + 4px);
   border: 2px dashed rgba(156, 13, 56, 0.3);
 }
-.download h3 {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  color: var(--green);
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .download p {
   color: var(--muted);
