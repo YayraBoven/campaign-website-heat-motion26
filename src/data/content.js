@@ -20,7 +20,7 @@ export const links = {
 
 // icons shown in the hero and footer; `link` is a key of `links` above
 export const socials = [
-  { name: 'TikTok', icon: 'tiktok', link: 'tiktok' },
+  // { name: 'TikTok', icon: 'tiktok', link: 'tiktok' },
   { name: 'WhatsApp', icon: 'whatsapp', link: 'whatsapp' },
 ]
 

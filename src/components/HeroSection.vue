@@ -63,11 +63,12 @@ const { phase, parts } = useCountdown(election.votingOpens, election.votingClose
         <div class="photo-frame">
           <PhotoBox :src="photos.heroTogether" label="Maria & Yayra together" ratio="4 / 5" dark />
         </div>
-
+<!--
         <a v-bind="external(siteLinks.tiktokVideo)" class="watch">
           <span class="watch-label">Watch now</span>
           <span class="play"><AppIcon name="play" :size="34" /></span>
         </a>
+-->
       </div>
     </div>
   </section>
