@@ -10,6 +10,7 @@
 // whatsapp, tiktok and tiktokVideo can also be changed by Maria & Yayra at /inbox
 // (Links tab). What they save there wins over the values here.
 export const links = {
+  vote: 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=9WHGbQzuDka9tANK6z82cPFWtuSbLetAou73p6p4yExUN080NldPTTJLSEZaQzExTlBaTjI3UUdWUi4u&route=shorturl',
   whatsapp: '#', // Join Team MOTION buttons + WhatsApp icon - channel/group link
   tiktok: '#', // TikTok icon - campaign TikTok profile
   tiktokVideo: '#', // "Watch now" play button - the TikTok campaign video

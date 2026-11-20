@@ -71,6 +71,9 @@ const sub = computed(
       </div>
 
       <div v-reveal class="actions">
+              <a v-if="phase === 'open'" v-bind="external(siteLinks.vote)" class="btn btn-light">
+          Vote now
+        </a>
         <a v-bind="external(siteLinks.whatsapp)" class="btn btn-light">
           <AppIcon name="whatsapp" /> Join Team MOTION
         </a>

@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import AppIcon from './AppIcon.vue'
 import { navLinks } from '@/data/content'
 import { scrollToSection } from '@/utils'
+import { siteLinks, external } from '@/siteLinks'
 
 const scrolled = ref(false)
 const menuOpen = ref(false)
@@ -11,6 +12,15 @@ const active = ref('')
 function go(target) {
   menuOpen.value = false
   scrollToSection(target)
+}
+
+// VOTE button: open the voting link; if no link is set yet, scroll to the Vote section
+function vote(e) {
+  menuOpen.value = false
+  if (!siteLinks.vote || siteLinks.vote === '#') {
+    e.preventDefault()
+    scrollToSection('vote')
+  }
 }
 
 function onScroll() {
@@ -61,7 +71,7 @@ onUnmounted(() => {
           @click.prevent="go(link.target)"
           >{{ link.label }}</a
         >
-        <a href="#vote" class="btn btn-primary vote-btn" @click.prevent="go('vote')">Vote</a>
+                <a v-bind="external(siteLinks.vote)" class="btn btn-primary vote-btn" @click="vote">Vote</a>
       </nav>
 
       <button
